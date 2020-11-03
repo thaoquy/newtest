@@ -165,121 +165,13 @@ public class Manager {
                 listStudents = listStuAfterDel(listStudents, listStudentMarkTotals);
                 scanner.nextLine();
                 break;
-            default:
+            case 7:
                 cont = false;
+                break;
+            default:
+                System.out.println("Không có lựa chọn nào như vậy mời bạn chọn lại.");
                 break;
             }
         } while (cont);
     }
-            
-        
-
-
-
-        
-    //     int menu = menu();        
-    //     switch(menu) {
-    //         case 1:
-    //         Scanner scanner = new Scanner(System.in);
-    //         System.out.println("Mời nhập số sinh viên: ");
-    //         int n = scanner.nextInt();
-    //         ArrayList<Student> listStudent = new ArrayList<Student>();
-    //         listStudent = nhap(n);
-            
-    //         break;
-    //         case 2: 
-    //         default:
-    //         System.out.println("Không có lựa chọn nào như vậy. Mời bạn chọn lại");
-    //         menu();
-
-
-    //     }
-    //     //Nhập thông tin 5 sinh viên
-    //     ArrayList<Student> listStudent = new ArrayList<Student>();
-    //     ArrayList<String> listStudentId = new ArrayList<String>();
-    //     for (int i = 1; i < 6; i++) {
-    //         Student s = new Student();
-    //         s.input();
-    //         if(listStudentId. contains(s.getStuId())) {
-    //             i--;
-    //             System.out.println("Sinh viên danh đã tồn tại trong danh sách sinh viên, mời nhập lại");
-    //         }
-    //         else {
-    //             listStudent.add(s);
-    //             listStudentId.add(s.getStuId());
-    //         }
-    //     }
-    //     //Nhập bảng điểm, kiểm tra sinh viên có trong danh sách sinh viên
-    //     ArrayList<StudentMarkTotal> listStudentMarkTotal = new ArrayList<StudentMarkTotal>();
-    //     System.out.println("Nhập kích thước danh sách điểm: ");
-    //     int siz = scanner.nextInt();
-    //     for (int i = 1; i <= siz; i++) {
-    //         StudentMarkTotal sm = new StudentMarkTotal();
-    //         sm.input();
-    //         if(!listStudentId.contains(sm.getStuId())) {
-    //             i--;
-    //             System.out.println("Sinh viên không có trong danh sách sinh viên, mời nhập lại");
-    //         }
-    //         else {
-    //             listStudentMarkTotal.add(sm);
-    //         }
-    //     }
-    //     //Sắp xếp sinh viên theo chữ cái đầu của tên
-    //     Collections.sort(listStudent, new Comparator<Student>() {
-    //         public int compare(Student o1, Student o2) {
-    //             return o1.getStuName().compareTo(o2.getStuName());
-    //         }
-    //     }); 
-    //     System.out.println("Danh sách sinh viên theo thứ tự tên sinh viên là: "); 
-    //     for(Student i:listStudent) {
-    //         i.display();
-    //     }
-    //     //Lấy thông tin điểm sinh viên theo id
-    //     Scanner input = new Scanner(System.in);
-    //     System.out.println("Nhập ID sinh viên muốn lấy thông tin:");
-    //     String id = input.nextLine();
-    //     for (StudentMarkTotal sm: listStudentMarkTotal) {
-    //         if (sm.getStuId().equals(id)) {
-    //             sm.display();
-    //         }
-    //     }
-    //     //Tìm sinh viên có điểm trung bình môn cao nhất và thấp nhất
-    //     ArrayList<String> listStudentIdMax = new ArrayList<String>();
-    //     ArrayList<String> listStudentIdMin = new ArrayList<String>();
-    //     float maxMark = listStudentMarkTotal.get(0).calculateEverageMark(listStudentMarkTotal);
-    //     float minMark = listStudentMarkTotal.get(0).calculateEverageMark(listStudentMarkTotal);
-    //     for (StudentMarkTotal st: listStudentMarkTotal) {
-    //         if(st.calculateEverageMark(listStudentMarkTotal) > maxMark) {
-    //             maxMark = st.calculateEverageMark(listStudentMarkTotal);
-    //         }
-    //         if (st.calculateEverageMark(listStudentMarkTotal) < minMark) {
-    //             minMark = st.calculateEverageMark(listStudentMarkTotal);
-    //         }
-    //     }
-    //     for (StudentMarkTotal st: listStudentMarkTotal) {
-    //         if (st.calculateEverageMark(listStudentMarkTotal) == maxMark) {
-    //             listStudentIdMax.add(st.getStuId());
-    //         }
-    //         if (st.calculateEverageMark(listStudentMarkTotal) == minMark) {
-    //             listStudentIdMin.add(st.getStuId());
-    //         }
-    //     }
-    //     System.out.println("Sinh viên có điểm trung bình cao nhất là: ");
-    //     for (Student i: listStudent) {
-    //         if (listStudentIdMax.contains(i.getStuId())) {
-    //             i.display();
-    //         }
-            
-    //     }
-    //     System.out.println("Danh sách sinh viên sau khi xóa sinh viên có điểm trung bình thấp nhất là: ");
-    //     for (int i = 0; i < listStudent.size(); i++) {
-    //         if (listStudentIdMin.contains(listStudent.get(i).getStuId())) {
-    //             listStudent.remove(i);
-    //             i--;                
-    //         }
-    //         else {
-    //             listStudent.get(i).display();
-    //         }
-    //     }
-
 }
