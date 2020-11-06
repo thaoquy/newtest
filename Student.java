@@ -6,9 +6,6 @@ interface IMark {
     public void display();
 }
 class Student implements IMark {
-    /**
-     *
-     */
     private static final PrintStream OUT = System.out;
     private String StuId;
     private String StuName;
