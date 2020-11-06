@@ -15,7 +15,6 @@ public class Manager {
         System.out.print("Nhập số sinh viên cần nhập thông tin: ");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        scanner.close();
         ArrayList<String> listStudentId = new ArrayList<String>();
         for (Student s : listStudents) {
             listStudentId.add(s.getStuId());
@@ -44,7 +43,6 @@ public class Manager {
         System.out.print("Nhập số bản ghi cần nhập thông tin: ");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        scanner.close();
         for (int i = 1; i <= n; i++) {
             StudentMarkTotal sm = new StudentMarkTotal();
             sm.input();
@@ -71,7 +69,6 @@ public class Manager {
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập ID sinh viên muốn lấy thông tin:");
         String id = input.nextLine();
-        input.close();
         for (StudentMarkTotal sm: listStudentMarkTotals) {
             if (sm.getStuId().equals(id)) {
                 sm.display();
@@ -173,7 +170,5 @@ public class Manager {
                 break;
             }
         } while (cont);
-        scanner.close();
-        input.close();
     }
 }

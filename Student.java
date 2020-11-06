@@ -47,7 +47,6 @@ class Student implements IMark {
         this.gender = scanner.nextLine();
         OUT.println("Nhập ngày sinh: ");
         this.birthday = scanner.nextLine();
-        scanner.close();
 
     }
     public void display() {
