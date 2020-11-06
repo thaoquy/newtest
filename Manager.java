@@ -1,67 +1,66 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 public class Manager {
-    //Hàm  hiển thị menu lựa chọn
+    // Hàm hiển thị menu lựa chọn
     static void menu() {
         System.out.println("Menu:\n1.Nhập thông tin Students.\n2.Nhập exam marks cho các Student đó."
-        +"\n3.Sắp xếp Students theo tên và hiển thị.\n4.Tìm thông tin exam marks bằng Id của Student và hiển thị."
-        +"\n5.Hiển thị Student có điểm trung bình cao nhất.\n6.Xóa Student có điểm trung bình thấp nhất.\n7.Thoát");
+                + "\n3.Sắp xếp Students theo tên và hiển thị.\n4.Tìm thông tin exam marks bằng Id của Student và hiển thị."
+                + "\n5.Hiển thị Student có điểm trung bình cao nhất.\n6.Xóa Student có điểm trung bình thấp nhất.\n7.Thoát");
     }
-    //Hàm nhập thông tin sinh viên
+
+    // Hàm nhập thông tin sinh viên
     static ArrayList<Student> nhap(ArrayList<Student> listStudents) {
         System.out.print("Nhập số sinh viên cần nhập thông tin: ");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
+        scanner.close();
         ArrayList<String> listStudentId = new ArrayList<String>();
-        for (Student s: listStudents) {
+        for (Student s : listStudents) {
             listStudentId.add(s.getStuId());
         }
         for (int i = 1; i <= n; i++) {
             Student s = new Student();
             s.input();
-            if(listStudentId. contains(s.getStuId())) {
+            if (listStudentId.contains(s.getStuId())) {
                 i--;
                 System.out.println("Sinh viên danh đã tồn tại trong danh sách sinh viên, mời nhập lại");
-            }
-            else {
+            } else {
                 listStudents.add(s);
                 listStudentId.add(s.getStuId());
             }
         }
         return listStudents;
     }
-    //Hàm nhập thông tin điểm thi
-    static ArrayList<StudentMarkTotal> nhapDiem(ArrayList<Student> listStudents, ArrayList<StudentMarkTotal> listStudentMarkTotals) {
+
+    // Hàm nhập thông tin điểm thi
+    static ArrayList<StudentMarkTotal> nhapDiem(ArrayList<Student> listStudents,
+            ArrayList<StudentMarkTotal> listStudentMarkTotals) {
         ArrayList<String> listStudentId = new ArrayList<String>();
-        for (Student s: listStudents) {
+        for (Student s : listStudents) {
             listStudentId.add(s.getStuId());
         }
         System.out.print("Nhập số bản ghi cần nhập thông tin: ");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
+        scanner.close();
         for (int i = 1; i <= n; i++) {
             StudentMarkTotal sm = new StudentMarkTotal();
             sm.input();
-            if(!listStudentId.contains(sm.getStuId())) {
+            if (!listStudentId.contains(sm.getStuId())) {
                 i--;
                 System.out.println("Sinh viên không có trong danh sách sinh viên, mời nhập lại");
-            }
-            else {
+            } else {
                 listStudentMarkTotals.add(sm);
             }
         }
         return listStudentMarkTotals;
     }
-    //Hàm sắp xếp sinh viên
+
+    // Hàm sắp xếp sinh viên
     static void sapxep(ArrayList<Student> listStudents) {
-        Collections.sort(listStudents, new Comparator<Student>() {
-            public int compare(Student o1, Student o2) {
-                return o1.getStuName().compareTo(o2.getStuName());
-            }
-        }); 
+        Collections.sort(listStudents, (o1, o2) -> o1.getStuName().compareTo(o2.getStuName()));
         System.out.println("Danh sách sinh viên theo thứ tự tên sinh viên là: "); 
         for(Student i:listStudents) {
             i.display();
@@ -72,6 +71,7 @@ public class Manager {
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập ID sinh viên muốn lấy thông tin:");
         String id = input.nextLine();
+        input.close();
         for (StudentMarkTotal sm: listStudentMarkTotals) {
             if (sm.getStuId().equals(id)) {
                 sm.display();
@@ -144,10 +144,10 @@ public class Manager {
             int chon = input.nextInt();
             switch (chon) {
             case 1:
-                listStudents = nhap(listStudents);
+                nhap(listStudents);
                 break;
             case 2:
-                listStudentMarkTotals = nhapDiem(listStudents, listStudentMarkTotals);
+                nhapDiem(listStudents, listStudentMarkTotals);
                 break;
             case 3:
                 sapxep(listStudents);
@@ -173,5 +173,7 @@ public class Manager {
                 break;
             }
         } while (cont);
+        scanner.close();
+        input.close();
     }
 }

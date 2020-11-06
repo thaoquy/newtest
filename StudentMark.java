@@ -50,6 +50,7 @@ class StudentMark implements IMark {
         this.semester = scanner.nextInt();
         System.out.println("Nhập điểm: ");
         this.mark = scanner.nextFloat();
+        scanner.close();
 
     }
     public void display() {
